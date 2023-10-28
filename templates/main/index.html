@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div style="width:1000px; height:350px;">
+  <h3 style="color:gray; margin-left:500px;">Добро пожаловать в наш ресторан A$!</h3>
+  <h3 style="color:gray; margin-left:600px;">До открытия ресторана!</h3>
+  <style>
+    #demo {
+      text-align: center;
+      font-size: 60px;
+      margin-top: 20px;
+      font-family: Arial, sans-serif; /* Change the font */
+      background-color: green; /* Background color */
+      color: #fff; /* Text color */
+      padding: 2px; /* Add padding */
+      border-radius: 10px; /* Rounded corners */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Box shadow for a nice effect */
+      margin-left:450px;
+    }
+  </style>
+  </head>
+  <body>
+
+  <p id="demo"></p>
+
+  <script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("Jan 16, 2024 16:00:00").getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+
+      // Get today's date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+
+      // Time calculations for days, hours, minutes, and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Output the result in an element with id="demo"
+      document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
+
+      // If the count down is over, write some text
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+      }
+    }, 1000);
+  </script>
+</div>
+
+<form action="" id="search-form">
+  <input
+          type="search"
+          placeholder="search here..."
+          name=""
+          id="search-box"
+  />
+  <label for="search-box" class="fas fa-search"></label>
+  <i class="fas fa-times" id="close"></i>
+</form>
+
+<section class="home" id="home">
+  <div class="swiper-container home-slider">
+    <div class="swiper-wrapper wrapper">
+      {% for y in restaurant %}
+      <div class="swiper-slide slide">
+        <div class="image">
+          <img src="{{ y.image.url }}" alt="" />
+        </div>
+        <div class="content">
+          <span>Филиал № 1</span>
+          <h3 style="color:gray;">{{y.name}}</h3>
+          <p>
+            {{y.description}}
+          </p>
+          <a href="menu/" class="btn">Click</a>
+        </div>
+      </div>
+      {% endfor %}
+
+
+      {% for z in restauran %}
+      <div class="swiper-slide slide">
+        <div class="content">
+          <span>Филиал № 2</span>
+          <h3 style="color:gray;">{{z.name}}</h3>
+          <p>
+            {{z.description}}
+          </p>
+          <a href="menu/" class="btn">Click</a>
+        </div>
+        <div class="image">
+          <img src="{{z.image.url}}" alt="" />
+        </div>
+      </div>
+      {% endfor %}
+
+      {% for d in restaura %}
+      <div class="swiper-slide slide">
+        <div class="image">
+          <img src="{{ d.image.url}}" alt="" />
+        </div>
+        <div class="content">
+          <span>Филиал № 3</span>
+          <h3 style="color:gray;">{{d.name}}</h3>
+          <p>
+            {{ d.description}}
+          </p>
+          <a href="menu/" class="btn">Click</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+{% for n in new_dishes%}
+<section class="dishes" id="dishes">
+  <h3 class="sub-heading">New_dishes</h3>
+  <div class="box-container">
+    <div class="box">
+      <a href="#" class="fas fa-heart"></a>
+      <a href="#" class="fas fa-eye"></a>
+      <img src="{{ n.image.url }}" alt=""/>
+      <h3>{{ n.name }}</h3>
+      <h3>{{ n.description }}</h3>
+      <div class="stars">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+      </div>
+      <span>{{n.price}}som</span>
+      <a href="menu/zakaz/" class="btn">add to cart</a>
+    </div>
+  </div>
+</section>
+
+{% endfor %}
+<script src="main.js"></script>
+
+
+
+
+{% endblock %}

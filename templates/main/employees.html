@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1 class="heading" style="color:gray;">Our Employees</h1>
+{% for x in employes%}
+<section class="review" id="review">
+    <div class="swiper-container review-slider">
+        <div class="swiper-wrapper wrapper">
+            <div class="swiper-slide slide">
+                <i class="fas fa-quote-right"></i>
+                <div class="user">
+                    <img src="{{ x.image.url }}" alt="" style="width:250px; height:250px;"/>
+                    <div class="user-info">
+                        <h3 class="sub-heading">{{x.name}} {{x.first_name}}</h3>
+                        <h1 class="heading">{{x.position}}</h1>
+                        <h3>{{ x.email}}</h3>
+                        <a href="{{ x.website}}">instagram</a>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    {{x.description}}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endfor %}
+
+
+{% endblock %}
