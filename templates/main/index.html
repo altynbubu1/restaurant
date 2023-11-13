@@ -3,12 +3,14 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<div style="width:1000px; height:350px;">
-  <h3 style="color:gray; margin-left:500px;">Добро пожаловать в наш ресторан A$!</h3>
-  <h3 style="color:gray; margin-left:600px;">До открытия ресторана!</h3>
+<div style="height:350px;">
+  <h3 style="color:gray; text-align:center">Добро пожаловать в наш ресторан A$!</h3>
+  <h3 style="color:gray; text-align:center">До открытия ресторана!</h3>
   <style>
     #demo {
       text-align: center;
+      margin: 0 auto;
+      width:600px;
       font-size: 60px;
       margin-top: 20px;
       font-family: Arial, sans-serif; /* Change the font */
@@ -17,7 +19,6 @@
       padding: 2px; /* Add padding */
       border-radius: 10px; /* Rounded corners */
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Box shadow for a nice effect */
-      margin-left:450px;
     }
   </style>
   </head>
@@ -56,7 +57,7 @@
     }, 1000);
   </script>
 </div>
-
+<link rel="stylesheet" href="./menu">
 <form action="" id="search-form">
   <input
           type="search"
@@ -150,8 +151,6 @@
 
 {% endfor %}
 <script src="main.js"></script>
-
-
 
 
 {% endblock %}

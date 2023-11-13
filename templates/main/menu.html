@@ -4,6 +4,7 @@
 
 {% block content %}
 {% for m in menu%}
+
 <section class="menu" id="menu">
     <h3 class="sub-heading">our menu</h3>
     <h1 class="heading">tudey's speciality</h1>
@@ -25,30 +26,7 @@
                 <p>
                     {{ m.description }}
                 </p>
-                <a href="zakaz/" class="btn">add to cart</a>
-                <span class="pise">{{m.price}} som</span>
-            </div>
-        </div>
-
-
-        <div class="box">
-            <div class="image">
-                <img src="{{ m.image.url }}" alt="" />
-                <a href="#" class="fas fa-heart"></a>
-            </div>
-            <div class="content">
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <h3>{{ m.name }}</h3>
-                <p>
-                    {{ m.description }}
-                </p>
-                <a href="zakaz/" class="btn">add to cart</a>
+                <a href="{% url 'main:zakaz' %}" class="btn">заказать</a>
                 <span class="pise">{{m.price}} som</span>
             </div>
         </div>

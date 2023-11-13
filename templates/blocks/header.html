@@ -5,13 +5,14 @@ justify-content: space-between;
 align-items: center ; color:gray;
 ">
 <a href="#" class="logo"><i class="fas fa-utensils"></i> Resto. </a>
-    <a class="#home" href="/index">home</a>
-    <a href="#dishes">dishes</a>
-    <a href="about/">about</a>
-    <a href="menu/">menu</a>
-    <a href="#review">review</a>
-    <a href="#order">order</a>
-    <a href="emp/">employees</a>
+    <a class="#home" href="">home</a>
+    <a href="#dishes">new_dishes</a>
+    <a href="{% url 'main:about' %}">about</a>
+    <a href="{% url 'main:menu' %}">menu</a>
+    <a href="{% url 'main:emp' %}">employees</a>
+    <a href="{% url 'account:login' %}">login</a>
+    <!-- <a href="{% url 'account:logout' %}">logout</a> -->
+    <a href="{% url 'account:register' %}">register</a>
 
 </nav>
 <div class="icons">
